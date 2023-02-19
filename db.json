@@ -1,0 +1,22 @@
+{
+  "projects": [
+    {
+      "id": 7,
+      "name": "Dự án 6 update lần 3",
+      "des": " cause browsers to send a request with credentials included on both same-origin and cross-origin calls, add credentials: 'include' to the init object you pass to the fetch() method.",
+      "link": "https://github.com/datlt2306/web501-web2061/tree/web501-we17302/we17302/src/pages/admin",
+      "date": "24/2/2023"
+    }
+  ],
+  "Intro": [
+    {
+      "title": "XIN CHAO",
+      "name": "TÔI TÊN LÀ DUNG NGUYỄN",
+      "des": "FROND END DEVELOPER",
+      "id": 1
+    }
+  ],
+  "users ": [
+    {}
+  ]
+}
