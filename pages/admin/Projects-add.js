@@ -15,18 +15,22 @@ const AdminProjectsAdd = () => {
         const projectCategory = document.querySelector("#project-category")
 
 
-        form.addEventListener("submit", function(e) {
+        form.addEventListener("submit",async function(e) {
             e.preventDefault();
-
-            addProjects({
-                name: projectName.value,
-                des: projectDes.value,
-                link: projectLinkgit.value,
-                date: projectDate.value,
-                technology: projectTechnology.value,
-                category: projectCategory.value,
-            }).then(() => router.navigate('/admin/projects'))
-              .catch(error => console.log(error));
+            try {
+                await addProjects({
+                    name: projectName.value,
+                    des: projectDes.value,
+                    link: projectLinkgit.value,
+                    date: projectDate.value,
+                    technology: projectTechnology.value,
+                    category: projectCategory.value,
+                });
+                router.navigate('/admin/projects')
+            }
+            catch(error) {
+                console.log(error);
+            }
 
             // axios.post('http://localhost:3000/projects',newProject )
             // .then(() => {
@@ -36,12 +40,8 @@ const AdminProjectsAdd = () => {
             // Thêm vào mảng projects
             //projects.push(newProject)
             //console.log(projects);
-
-            
-
-        })
-
-    })
+        });
+    });
 
     return `<div>
                 <h1>Thêm dự án</h1>

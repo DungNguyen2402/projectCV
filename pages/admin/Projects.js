@@ -7,24 +7,37 @@ const AdminProjects = () => {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        //console.log(axios.get('http://localhost:3000/projects').then(({data}) => setData(data)));
-        getProjects().then(({data}) => setData(data))
-                     .catch(error => console.log(error))
+        (async() => {
+            try {
+                setData(await getProjects());
+            } catch (error) {
+                console.log(error);
+            }
+        })()
+
     },[])
 
     useEffect(() => {
         const btns = document.querySelectorAll(".btn-remove")
         //console.log(btns);
         for(let btn of btns) {
-            btn.addEventListener("click", function() {
+            btn.addEventListener("click",async function() {
                 const id = this.dataset.id;
                 const confirm = window.confirm('Bạn có chắc chắn muốn xóa hay không?');
                 if(confirm) {
-                    deleteProject(id).then(() => {
+                    try {
+                        await deleteProject(id);
                         const newProject = data.filter((project) => project.id !== +id);
                         setData(newProject)
-                    })
-                    .catch(error => console.log(error))
+                    } catch {
+                        console.log(error);
+                    }
+                    
+                    // deleteProject(id).then(() => {
+                    //     const newProject = data.filter((project) => project.id !== +id);
+                    //     setData(newProject)
+                    // })
+                    // .catch(error => console.log(error))
                 }    
             })
         }

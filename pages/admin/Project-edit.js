@@ -1,5 +1,5 @@
 import axios from "axios";
-import { updateProject } from "../../api/project";
+import { updateProject, getProject } from "../../api/project";
 import { useEffect,router, useState } from "../../lib";
 //import { projects } from "../../data";
 
@@ -8,6 +8,13 @@ const AdminProjectsEdit = ({id}) => {
     const [project, setProject] = useState({});
 
     useEffect(() => {
+        (async() => {
+            try {
+                setProject(await getProject(id))
+            } catch (error) {
+                console.log(error);
+            }
+        })()
 
         axios.get(`http://localhost:3000/projects/${id}`)
         .then(({data}) => {
@@ -25,21 +32,23 @@ const AdminProjectsEdit = ({id}) => {
         // const projectCategory = document.querySelector("#project-category")
 
 
-        form.addEventListener("submit", function(e) {
+        form.addEventListener("submit",async function(e) {
             e.preventDefault();
+            try {
+                await updateProject ({
+                    id: id,
+                    name: projectName.value,
+                    des: projectDes.value,
+                    link: projectLinkgit.value,
+                    date: projectDate.value,
+                    // technology: projectTechnology.value,
+                    // category: projectCategory.value,
+                });
+                router.navigate('/admin/projects')
+            } catch (error) {
+                console.log(error);
+            }
 
-            const formProject = {
-                id: id,
-                name: projectName.value,
-                des: projectDes.value,
-                link: projectLinkgit.value,
-                date: projectDate.value,
-                // technology: projectTechnology.value,
-                // category: projectCategory.value,
-            };
-
-            updateProject(formProject).then(() => router.navigate('/admin/projects'))
-                           .catch(error => console.log(error))
 
             // Sử dụng axios
             // axios.put(`http://localhost:3000/projects/${id}`, formProject)
