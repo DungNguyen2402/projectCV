@@ -1,20 +1,40 @@
 {
   "projects": [
     {
-      "id": 1,
-      "name": "Dự án 2 update",
+      "name": "Dự án 2",
       "des": " cause browsers to send a request with credentials included on both same-origin and cross-origin calls, add credentials: 'include' to the init object you pass to the fetch() method.",
-      "link": "https://github.com/datlt2306/web501-web2061/tree/web501-we17302/we17302/src/pages/admin",
-      "date": "13/11/2022"
-    },
-    {
-      "name": "Dự án 10",
-      "des": " cause browsers to send a request with credentials included on both same-origin and cross-origin calls, add credentials: 'include' to the init object you pass to the fetch() method.",
-      "link": "https://github.com/datlt2306/web501-web2061/tree/web501-we17302/we17302/src/pages/admin",
-      "date": "10/2/2022",
+      "link": "https://github.com/Laxus66/duan1-nhom2-web17320",
+      "date": "22/2/2022",
       "technology": "XAMPP",
       "category": "Reactjs",
-      "id": 2
+      "gallery": [
+        "https://res.cloudinary.com/dwbelze6q/image/upload/v1676883822/ECMA/qei3sf4xyebl2cnqyjrt.jpg"
+      ],
+      "id": 3
+    },
+    {
+      "name": "Dự án 8",
+      "des": " cause browsers to send a request with credentials included on both same-origin and cross-origin calls, add credentials: 'include' to the init object you pass to the fetch() method.",
+      "link": "https://github.com/DungNguyen2402/my-project-vannilla",
+      "date": "10/2/2022",
+      "technology": "XAMPP",
+      "category": "PHP Larvel",
+      "gallery": [
+        "https://res.cloudinary.com/dwbelze6q/image/upload/v1676905562/ECMA/uugvpyeszaw4dnp8xshm.jpg"
+      ],
+      "id": 5
+    },
+    {
+      "name": "Dự án 4",
+      "des": "JSON là viết tắt của \"JavaScript Object Notation\" (định dạng đối tượng JavaScript). Đó là một định dạng dữ liệu dựa trên văn bản (text-based) và được sử dụng để trao đổi dữ liệu giữa các ứng dụng web. JSON có thể lưu trữ và truyền tải thông tin dưới dạng mảng (array), đối tượng (object), chuỗi (string), số (number), boolean (true hoặc false) và giá trị null.",
+      "link": "https://github.com/DungNguyen2402/my-project-vannilla",
+      "date": "10/2/2022",
+      "technology": "GitHup",
+      "category": "Reactjs",
+      "gallery": [
+        "https://res.cloudinary.com/dwbelze6q/image/upload/v1676914256/ECMA/nukcwpkurmahzuew4gpj.jpg"
+      ],
+      "id": 6
     }
   ],
   "Intro": [

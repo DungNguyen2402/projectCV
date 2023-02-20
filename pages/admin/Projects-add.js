@@ -13,35 +13,56 @@ const AdminProjectsAdd = () => {
         const projectDate = document.querySelector("#project-date")
         const projectTechnology = document.querySelector("#project-technology")
         const projectCategory = document.querySelector("#project-category")
+        const projectImages = document.querySelector("#project-images");
 
 
         form.addEventListener("submit",async function(e) {
             e.preventDefault();
-            try {
-                await addProjects({
+
+            const urls = await uploadFiles(projectImages.files);
+            addProjects({
                     name: projectName.value,
                     des: projectDes.value,
                     link: projectLinkgit.value,
                     date: projectDate.value,
                     technology: projectTechnology.value,
                     category: projectCategory.value,
-                });
-                router.navigate('/admin/projects')
-            }
-            catch(error) {
-                console.log(error);
-            }
+                    gallery: urls,
+                })
+                    .then(() => router.navigate('/admin/projects')) 
+                    .catch((error) => console.log(error))
 
-            // axios.post('http://localhost:3000/projects',newProject )
-            // .then(() => {
-            //     router.navigate('/admin/projects')
-            // })
-
-            // Thêm vào mảng projects
-            //projects.push(newProject)
-            //console.log(projects);
         });
     });
+
+    const uploadFiles = async (files) => {
+        if (files ) {
+            const CLOUD_NAME = "dwbelze6q";
+        const PRESET_NAME = "upload-image";
+        const FOLDER_NAME = "ECMA";
+        const urls = [];
+        const api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
+
+        const formProject = new FormData();
+
+        formProject.append('upload_preset', PRESET_NAME);
+        formProject.append('folder', FOLDER_NAME);
+
+        for (const file of files) {
+            formProject.append('file', file);
+            const response = await axios
+            .post(api, formProject, {
+                headers: {
+                    "Content-Type": "multipart/form-data"
+                },
+            });
+            urls.push(response.data.secure_url);
+            //console.log(urls);
+        }
+        return urls;
+        }
+        
+    }
 
     return `<div>
                 <h1>Thêm dự án</h1>
@@ -62,6 +83,10 @@ const AdminProjectsAdd = () => {
                     <div class="form-group mb-3">
                         <label for="">Ngày làm</label>
                         <input type="text" name="" id="project-date" class="form-control">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="">Ảnh dự án</label>
+                        <input type="file" name="" id="project-images" class="form-control">
                     </div>
                     <div class="form-group mb-3">
                         <select id="project-technology">    

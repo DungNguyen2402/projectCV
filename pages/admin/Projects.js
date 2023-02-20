@@ -78,6 +78,7 @@ const AdminProjects = () => {
                 <tr>
                     <th>STT</th>
                     <th>Tên dự án</th>
+                    <th>Image</th>
                     <th></th>
                 </tr>
             </thead>
@@ -87,8 +88,9 @@ const AdminProjects = () => {
                         <tr>
                             <td>${index + 1}</td>
                             <td>${project.name}</td>
+                            <td><img width="50px" src="${project.gallery}"></td>
                             <td><button data-id="${project.id}" class="btn btn-danger btn-remove" >Xóa</button></td>
-                            <td><button class="btn btn-primary" >Sửa</button></td>
+                            <td><a href="/admin/projects/${project.id}/edit"><button class="btn btn-primary">Sửa</button></a></td>
 
                         </tr>
                     `
