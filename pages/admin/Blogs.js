@@ -1,35 +1,36 @@
 import axios from "axios"
-import { getProjects, deleteProject } from "../../api/project"
-import Header from "../../component/Header"
+import { getPosts, deletePost } from "../../api/project"
 import { useEffect,useState } from "../../lib"
 
 
-const AdminProjects = () => {
+const AdminBlogsPage = () => {
     const [data, setData] = useState([])
 
     useEffect(() => {
         (async() => {
             try {
-                setData(await getProjects());
+                setData(await getPosts());
             } catch (error) {
                 console.log(error);
             }
         })()
 
+
     },[])
 
     useEffect(() => {
-        const btns = document.querySelectorAll(".btn-remove")
+        const btns = document.querySelectorAll(".btn-xoa")
         //console.log(btns);
         for(let btn of btns) {
             btn.addEventListener("click",async function() {
                 const id = this.dataset.id;
+                console.log(id);
                 const confirm = window.confirm('Bạn có chắc chắn muốn xóa hay không?');
                 if(confirm) {
                     try {
-                        await deleteProject(id);
-                        const newProject = data.filter((project) => project.id !== +id);
-                        setData(newProject)
+                        await deletePost(id);
+                        const newPost = data.filter((post) => post.id !== id);
+                        setData(newPost)
                     } catch {
                         console.log(error);
                     }
@@ -45,8 +46,7 @@ const AdminProjects = () => {
     })
 
   return ` <div class="container">
-  ${Header()}
-  <div class=" tw-flex tw-mx-auto">
+  <div class="container tw-flex tw-mx-auto">
       <div class="tw-mt-20 tw-h-full tw-w-1/4 tw-bg-zinc-500 ">
           <div class="tw-justify-center tw-items-center">
               <img src="./img/logo.png" alt="" class="w-2/4 ">
@@ -64,26 +64,30 @@ const AdminProjects = () => {
       </div>
       <div class="tw-w-4/5 tw-py-2 ">
           
-          <h1 class="tw-text-white">Quản lí dự án</h1>
-          <button class="btn btn-success tw-my-10 tw-ml-10" ><a class="tw-no-underline tw-text-white" href="/admin/projects/add">Thêm dự án</a></button>
-        <table class="table table-bordered ">
+          <h1 class="tw-text-white">Quản lí trang blog</h1>
+          <button class="btn btn-success tw-my-10 tw-ml-10" ><a class="tw-no-underline tw-text-white" href="/admin/blogs/add">Thêm blog</a></button>
+        <table class="table table-bordered">
             <thead>
                 <tr class="tw-text-white">
                     <th>STT</th>
-                    <th>Tên dự án</th>
+                    <th>Tên blog</th>
+                    <th>Mo ta</th>
+                    <th>Tac gia</th>
                     <th>Image</th>
                     <th></th>
                 </tr>
             </thead>
-            <tbody class="tw-text-white">
-                ${data.map((project, index) => {
+            <tbody>
+                ${data.map((blog, index) => {
                     return  `
-                        <tr>
+                        <tr class="tw-text-white">
                             <td>${index + 1}</td>
-                            <td>${project.name}</td>
-                            <td><img width="80px" src="${project.gallery}"></td>
-                            <td><button data-id="${project.id}" class="btn btn-danger btn-remove" >Xóa</button></td>
-                            <td><a href="/admin/projects/${project.id}/edit"><button class="btn btn-primary">Sửa</button></a></td>
+                            <td>${blog.name}</td>
+                            <td>${blog.des}</td>
+                            <td>${blog.author}</td>
+                            <td><img width="80px" src="${blog.gallery}"></td>
+                            <td><button data-id="${blog.id}" class="btn btn-danger btn-xoa" >Xóa</button></td>
+                            <td><a href="/admin/blogs/${blog.id}/edit"><button class="btn btn-primary">Sửa</button></a></td>
 
                         </tr>
                     `
@@ -100,4 +104,4 @@ const AdminProjects = () => {
   `
 }
 
-export default AdminProjects
+export default AdminBlogsPage

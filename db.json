@@ -1,51 +1,107 @@
 {
   "projects": [
     {
-      "name": "Dự án 2",
-      "des": " cause browsers to send a request with credentials included on both same-origin and cross-origin calls, add credentials: 'include' to the init object you pass to the fetch() method.",
-      "link": "https://github.com/Laxus66/duan1-nhom2-web17320",
-      "date": "22/2/2022",
-      "technology": "XAMPP",
-      "category": "Reactjs",
+      "name": "CraftyCards ",
+      "des": "A small e-commerce website for a custom greeting card company, built using HTML, CSS, and JavaScript.",
+      "link": "https://github.com/DungNguyen2402/my-project-vannilla",
+      "date": "06/08/2022",
+      "technology": "Visual Studio code",
+      "categoriesId": "htmlcss",
       "gallery": [
-        "https://res.cloudinary.com/dwbelze6q/image/upload/v1676883822/ECMA/qei3sf4xyebl2cnqyjrt.jpg"
+        "https://res.cloudinary.com/dwbelze6q/image/upload/v1677119032/ECMA/quze0kqvtzmbywndkqao.png"
+      ],
+      "id": 1
+    },
+    {
+      "name": "MealMaster",
+      "des": "This small project is a website built using PHP to manage and display product listings. Users can browse and search for products, and administrators can add, edit, and delete products from the database.",
+      "link": "https://github.com/Laxus66/duan1-nhom2-web17320",
+      "date": "12/12/2022",
+      "technology": "XAMPP",
+      "categoriesId": "PHP Leravel",
+      "gallery": [
+        "https://res.cloudinary.com/dwbelze6q/image/upload/v1677119107/ECMA/d4bg4tgbpro1cwlir6ve.png"
+      ],
+      "id": 2
+    },
+    {
+      "name": "MovieFlix",
+      "des": "Our small PHP project is a simple task management application that allows users to create, assign, and track tasks. It features a clean user interface and an easy-to-use dashboard for managing tasks and deadlines.",
+      "link": "https://github.com/DungNguyen2402/projectCV",
+      "date": "10/11/2022",
+      "technology": "XAMPP",
+      "categoriesId": "PHP Leravel",
+      "gallery": [
+        "https://res.cloudinary.com/dwbelze6q/image/upload/v1677119206/ECMA/bgtj0dxep57aa8ysqvqk.png"
       ],
       "id": 3
+    }
+    
+  ],
+  "categories": [
+    {
+      "name": "HTML/CSS/JS",
+      "id": "htmlcss"
     },
     {
-      "name": "Dự án 8",
-      "des": " cause browsers to send a request with credentials included on both same-origin and cross-origin calls, add credentials: 'include' to the init object you pass to the fetch() method.",
-      "link": "https://github.com/DungNguyen2402/my-project-vannilla",
-      "date": "10/2/2022",
-      "technology": "XAMPP",
-      "category": "PHP Larvel",
-      "gallery": [
-        "https://res.cloudinary.com/dwbelze6q/image/upload/v1676905562/ECMA/uugvpyeszaw4dnp8xshm.jpg"
-      ],
-      "id": 5
+      "name": "PHP Leravel",
+      "id": "PHP Leravel"
     },
     {
-      "name": "Dự án 4",
-      "des": "JSON là viết tắt của \"JavaScript Object Notation\" (định dạng đối tượng JavaScript). Đó là một định dạng dữ liệu dựa trên văn bản (text-based) và được sử dụng để trao đổi dữ liệu giữa các ứng dụng web. JSON có thể lưu trữ và truyền tải thông tin dưới dạng mảng (array), đối tượng (object), chuỗi (string), số (number), boolean (true hoặc false) và giá trị null.",
-      "link": "https://github.com/DungNguyen2402/my-project-vannilla",
-      "date": "10/2/2022",
-      "technology": "GitHup",
-      "category": "Reactjs",
-      "gallery": [
-        "https://res.cloudinary.com/dwbelze6q/image/upload/v1676914256/ECMA/nukcwpkurmahzuew4gpj.jpg"
-      ],
-      "id": 6
+      "name": "ReactJS",
+      "id": "PHP Leravel"
     }
   ],
-  "Intro": [
+  "intro": [
     {
-      "title": "XIN CHAO",
-      "name": "TÔI TÊN LÀ DUNG NGUYỄN",
-      "des": "FROND END DEVELOPER",
+      "title": "XIN CHÀO",
+      "name": "Tôi là Dung Nguyễn",
+      "des": "FRONT END DEVELOPER",
       "id": 1
     }
   ],
-  "users ": [
+  "blogs": [
+    {
+      "id": 4,
+      "name": "Ký sự ngày thứ 25 học ở F222",
+      "des": "Hí ae, tôi cũng tên Sơn nhưng mà là newbie còn ông Sơn kia thì trùm rồi :))). Tôi cũng vừa mới đến với lập trình,tôi là sv năm 1. Sau khi nghe truyền thuyết thằng anh sinh năm 96 học cơ khí bách khoa, tôi đã lao đầu ngay vào học code vì nghe bảo ngành được xã hội trọng dụng, nhắc đến là gái chảy nước( một phần là sợ bị tụt hậu-nghe đồn là ngành IT đào thải nhanh lắm). Khoảng thời gian trước đó việc tìm hiểu học về web tôi còn khá lơ mơ vì trên mạng người ta chỉ loạn cả lên ( không có lộ trình rõ ràng). ",
+      "author": "Helloehjk",
+      "date": "14/4/2022",
+      "gallery": "https://res.cloudinary.com/dwbelze6q/image/upload/v1676952462/ECMA/aplnrgqijzof1d8gy7oc.jpg"
+    },
+    {
+      "name": "Ký sự hok hanh",
+      "des": "Hí ae, tôi cũng tên Sơn nhưng mà là newbie còn ông Sơn kia thì trùm rồi :))). Tôi cũng vừa mới đến với lập trình,tôi là sv năm 1. Sau khi nghe truyền thuyết thằng anh sinh năm 96 học cơ khí bách khoa, tôi đã lao đầu ngay vào học code vì nghe bảo ngành được xã hội trọng dụng, nhắc đến là gái chảy nước( một phần là sợ bị tụt hậu-nghe đồn là ngành IT đào thải nhanh lắm). Khoảng thời gian trước đó việc tìm hiểu học về web tôi còn khá lơ mơ vì trên mạng người ta chỉ loạn cả lên ( không có lộ trình rõ ràng). ",
+      "date": "14/4/2022",
+      "author": "Helloehjk",
+      "gallery": [
+        "https://res.cloudinary.com/dwbelze6q/image/upload/v1676954353/ECMA/nsymrpbivbt2jey3ciec.jpg"
+      ],
+      "id": 6
+    },
+    {
+      "name": "Ký sự ngày thứ 25 học ở F8",
+      "des": "Hí ae, tôi cũng tên Sơn nhưng mà là newbie còn ông Sơn kia thì trùm rồi :))). Tôi cũng vừa mới đến với lập trình,tôi là sv năm 1. Sau khi nghe truyền thuyết thằng anh sinh năm 96 học cơ khí bách khoa, tôi đã lao đầu ngay vào học code vì nghe bảo ngành được xã hội trọng dụng, nhắc đến là gái chảy nước( một phần là sợ bị tụt hậu-nghe đồn là ngành IT đào thải nhanh lắm). Khoảng thời gian trước đó việc tìm hiểu học về web tôi còn khá lơ mơ vì trên mạng người ta chỉ loạn cả lên ( không có lộ trình rõ ràng). ",
+      "date": "14/4/2026",
+      "author": "aaa",
+      "gallery": [
+        "https://res.cloudinary.com/dwbelze6q/image/upload/v1676954466/ECMA/qoogkybodascvmruztzd.jpg"
+      ],
+      "id": 7
+    }
+  ],
+  "users": [
     {}
+  ],
+  "self": [
+    {
+      "des": "Hiện tại mình đang học kỳ 5 chuyên ngành lập trình web tại Cao Đẳng FPT Polyetchnic. Thời gian rãnh thì hay tập trung vào việc học là chinhs . Sở thích của mình đó là xem phim và ca nhạc ",
+      "name": "Dung Nguyễn",
+      "date": "24/02/2003",
+      "address": "Thanh Hóa",
+      "email": "dungdungnguyen2402@gmail.com",
+      "phone": "0366462025",
+      "age": "20"
+    }
   ]
 }

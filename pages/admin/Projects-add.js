@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect,router } from "../../lib";
 import {addProjects} from "../../api/project"
-//import { projects } from "../../data";
 
 const AdminProjectsAdd = () => {
 
@@ -26,7 +25,7 @@ const AdminProjectsAdd = () => {
                     link: projectLinkgit.value,
                     date: projectDate.value,
                     technology: projectTechnology.value,
-                    category: projectCategory.value,
+                    categoriesId: projectCategory.value,
                     gallery: urls,
                 })
                     .then(() => router.navigate('/admin/projects')) 
@@ -38,12 +37,11 @@ const AdminProjectsAdd = () => {
     const uploadFiles = async (files) => {
         if (files ) {
             const CLOUD_NAME = "dwbelze6q";
-        const PRESET_NAME = "upload-image";
-        const FOLDER_NAME = "ECMA";
-        const urls = [];
-        const api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
-
-        const formProject = new FormData();
+            const PRESET_NAME = "upload-image";
+            const FOLDER_NAME = "ECMA";
+            const urls = [];
+            const api = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
+            const formProject = new FormData();
 
         formProject.append('upload_preset', PRESET_NAME);
         formProject.append('folder', FOLDER_NAME);
@@ -64,42 +62,39 @@ const AdminProjectsAdd = () => {
         
     }
 
-    return `<div>
+    return `<div class="container tw-text-white">
                 <h1>Thêm dự án</h1>
                 <form id="form-add">
-                    <div class="form-group mb-3">
-                        <label for="">Tên dự án</label>
-                        <input type="text" name="" id="project-name" class="form-control">
+                    <div class="tw-w-1/3 form-group mb-3">
+                        <label for="">Name project</label>
+                        <input type="text" placeholder="Dự án 1" id="project-name" class="form-control">
                     </div>
                     
-                    <div class="form-group mb-3">
-                        <label for="">Mô tả</label>
-                        <input type="text" name="" id="project-des" class="form-control">
+                    <div class="tw-w-1/3 form-group mb-3">
+                        <label for="">Description</label>
+                        <input type="text" placeholder="Mô tả dự án" id="project-des" class="form-control">
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="tw-w-1/3 form-group mb-3">
                         <label for="">Linkgit</label>
-                        <input type="text" name="" id="project-githup" class="form-control">
+                        <input type="text" placeholder="Link githup" id="project-githup" class="form-control">
                     </div>
-                    <div class="form-group mb-3">
-                        <label for="">Ngày làm</label>
-                        <input type="text" name="" id="project-date" class="form-control">
+                    <div class="tw-w-1/3 form-group mb-3">
+                        <label for="">Date</label>
+                        <input type="text" placeholder="dd/mm/yy" id="project-date" class="form-control">
                     </div>
-                    <div class="form-group mb-3">
-                        <label for="">Ảnh dự án</label>
+                    <div class="tw-w-1/3 form-group mb-3">
+                        <label for="">Image project</label>
                         <input type="file" name="" id="project-images" class="form-control">
                     </div>
-                    <div class="form-group mb-3">
-                        <select id="project-technology">    
-                            <option>Visual Studio code</option>
-                            <option>XAMPP</option>
-                            <option>GitHup</option>
-                        </select>
+                    <div class="tw-w-1/3 form-group mb-3">
+                        <label for="">Description</label>
+                        <input type="text" placeholder="Mô tả dự án" id="project-des" class="form-control">
                     </div>
-                    <div class="form-group mb-3 bordered" >
+                    <div class="tw-text-black tw-w-1/3 form-group mb-3 bordered" >
                         <select id="project-category">    
-                            <option>HTML/CSS/JS</option>
+                            <option >HTML/CSS/JS</option>
                             <option>Reactjs</option>
-                            <option>PHP Larvel</option>
+                            <option>PHP Leravel</option>
                         </select>
                     </div>
                     <div class="form-group">

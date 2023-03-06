@@ -1,49 +1,39 @@
 
 const Header = () => {
   return `
-  <div class="container-fluid px-0">
-  <nav class="navbar navbar-expand-sm navbar-dark bg-menu py-0 px-0">
+  <div class="">
+  <nav class="navbar navbar-expand-sm navbar-dark">
       <a class="navbar-brand" href="#"><img id="logo" src="https://i.imgur.com/K7Nwq4V.jpg">Acme Inc</a>
-      <span class="v-line"></span>
-      <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
       <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
               <li class="nav-item active">
-                  <a class="nav-link" href="/">Home</a>
+                  <a class="nav-link" href="/">HOME</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="/projects">Projects</a>
+                  <a class="nav-link" href="/projects">PROJECTS</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="/blog">Blogs</a>
+                  <a class="nav-link" href="/blog">BLOGS</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="/contact">Contact</a>
+                  <a class="nav-link" href="/contact">CONTACT</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/#/admin">ADMIN</a>
               </li>
           </ul>
-          <ul class="navbar-nav justify-content-end ml-auto">
-              <a href="">
-                  <li class="nav-item mx-1"> <a class="nav-link" href="/login">
-                          <i class="fa-solid fa-user"></i></a></li>
-          </ul>
+          
       </div>
   </nav>
 </div>
 <style>
-  .bg-menu {
-      background-color: #404040;
-  }
-
-  .bg-black {
-      background-color: #000;
-  }
+    .navbar {
+        padding-bottom: 10px
+    }
 
   #logo {
-      width: 30px;
-      height: 30px;
+      width: 50px;
+      height: 50px;
       border-radius: 4px;
   }
 
@@ -54,6 +44,7 @@ const Header = () => {
 
   .navbar-nav {
       width: 100%;
+      justify-content: flex-end;
   }
 
   .nav-item {
@@ -63,6 +54,7 @@ const Header = () => {
 
   .nav-link {
       padding-bottom: 10px;
+      color: white;
   }
 
   .v-line {

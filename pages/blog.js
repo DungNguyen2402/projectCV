@@ -1,27 +1,42 @@
 import Footer from "../component/Footer"
 import Header from "../component/Header"
+import { useEffect ,useState } from "../lib"
+
 
 const BlogPage = () => {
+
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        fetch("http://localhost:3000/blogs")
+        .then((response) => response.json()
+        .then((data) => setData(data))
+        )
+    },[])
+    
     return `
         <div class="container">
         ${Header()}
-        <div>
-                <div class="tw-mb-10 tw-bg-white ">
-                <h1 class="tw-py-6 tw-pl-8">About me</h1>
-                    <div class="tw-flex">
-                    <img width="50%" class="tw-px-6" src="./img/about-us.png" alt="">
-                    <div class="tw-p-10">
-                        <h3 class=" tw-text-black tw-text-5xl">Giới thiệu bản thân</h3>
-                        <p class="py-3 fs-5">Hiện tại mình đang học kì 5 tại trường FPT Polytechnic.  Ngoài việc học tập trên trường thì mình thường xuyên học thêm trên F8 Fullstack và trên các kênh Youtube như evondev, easy frontend, ...
-                        Mình thực sự thích code và thử thách bản thân học được nhiều cái mới vào mỗi ngày mới. Mục tiêu hiện tại của mình là trở thành một lập trình viên Frontend.</p>
-                        <button class="tw-rounded-lg tw-bg-red-400 tw-p-2 "><a class="tw-text-white tw-text-2xl tw-no-underline" href="">Download CV</a></button>
+        <h1 class="tw-text-7xl tw-font-extrabold tw-text-sky-300 tw-text-center">Blog</h1>      
+            <p class="tw-py-10 tw-text-2xl tw-text-center tw-text-slate-400">Here are the projects that I have done</p>
+        <div class="row">
+            ${data.map((blog) => {
+                return `
+                <div  class="col-md-4 p-2 rounded box-project">
+                    <div class="project tw-border-red-500 tw-my-20 tw-bg-slate-700 tw-text-white">
+                        <div class="box_image">
+                        <img  width="100%" src="${blog.gallery}" alt="">
                     </div>
+                        <h3  class="tw-py-4 tw-pl-4  text-white">${blog.name}</h3>
+                        <p class=" tw-text-white tw-py-2 tw-mx-4 box-content tw-text-center">${blog.des}</p>
                     </div>
                 </div>
-            </div>
-            <div>
+                `
+            }).join("")}
+            
+            ${Footer()}
         </div>
-        ${Footer()}
+        </div>
     `
   }
   

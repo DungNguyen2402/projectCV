@@ -1,6 +1,8 @@
+import Header from "../../component/Header"
 
 const adminPage = () => {
   return `
+  ${Header()}
   <div class="container tw-flex tw-mx-auto">
       <div class="tw-mt-20 tw-h-full tw-w-1/4 tw-bg-zinc-500 ">
             <div class="tw-justify-center tw-items-center">

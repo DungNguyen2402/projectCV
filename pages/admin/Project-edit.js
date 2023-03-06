@@ -66,34 +66,34 @@ const AdminProjectsEdit = ({id}) => {
 
     })
 
-    return `<div>
-                <h1>Cập nhật dự án</h1>
+    return `<div class="container tw-text-white">
+                <h1 class="tw-text-center tw-text-6xl tw-font-extrabold tw-text-white">Cập nhật dự án</h1>
                 <form id="form-add">
-                    <div class="form-group mb-3">
+                    <div class="tw-w-1/3 form-group mb-3">
                         <label for="">Tên dự án</label>
                         <input type="text" name="" id="project-name" value="${project.name}" class="form-control">
                     </div>
                     
-                    <div class="form-group mb-3">
+                    <div class="tw-w-1/3 form-group mb-3">
                         <label for="">Mô tả</label>
                         <input type="text" name="" id="project-des" value="${project.des}" class="form-control">
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="tw-w-1/3 form-group mb-3">
                         <label for="">Linkgit</label>
                         <input type="text" name="" id="project-githup" value="${project.link}" class="form-control">
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="tw-w-1/3 form-group mb-3">
                         <label for="">Ngày làm</label>
                         <input type="text" name="" id="project-date" value="${project.date}" class="form-control">
                     </div>
-                    <div class="form-group mb-3" >
+                    <div class="tw-w-1/3 form-group mb-3" >
                     <input type="text" name="" id="project-date" value="${project.technology}" class="form-control">
                     </div>
-                    <div class="form-group mb-3 bordered" >
+                    <div class="tw-w-1/3 form-group mb-3 bordered" >
                     <input type="text" name="" id="project-date" value="${project.category}" class="form-control">
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary" >Thêm sản phẩm</button>
+                        <button class="btn btn-primary" >Update project</button>
                     </div>
                 </form>
             </div>

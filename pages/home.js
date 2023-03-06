@@ -1,80 +1,154 @@
 import Header from "../component/Header"
 import Footer from "../component/Footer"
-import {Intro} from "../db.json"
 import { useEffect ,useState } from "../lib"
 
 const HomePage = () => {
     const [data, setData] = useState([])
+    const [projects, setProject] = useState([])
+    const [self, setSelf] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:3000/projects")
+        fetch("http://localhost:3000/intro")
         .then((response) => response.json()
         .then((data) => setData(data))
         )
     },[])
-    //console.log(Intro);
+
+    useEffect(() => {
+        fetch("http://localhost:3000/projects")
+        .then((response) => response.json()
+        .then((projects) => setProject(projects))
+        )
+    },[])
+
+    useEffect(() => {
+        fetch("http://localhost:3000/self")
+        .then((response) => response.json()
+        .then((data) => setSelf(data))
+        )
+    },[])
+    //console.log(self);
+
 
 
     return /*html */`
-    <div class="container">
+    <div class="container ">
         ${Header()}
-        ${ Intro.map((info) => {
+        ${ data.map((info) => {
+
             return `
             <div class=" tw-mr-12 tw-ml-8 ">
-            <div class="tw-flex">
+            <div class="tw-grid tw-grid-cols-2 ">
                 <div class="tw-py-20 tw-px-10">
-                   
-                    <h1 class="p-3 tw-text-red-500 tw-text-4xl tw-font-sans">${info.title}-------------------</h1>
-                    <h1 class="p-3 tw-text-5xl fw-bold ">${info.name}</h1>
-                    <h1 class="p-2 tw-text-slate-500">${info.des}</h1>
+                    <h1 class="p-3 tw-text-red-700 tw-text-6xl tw-font-sans">${info.title},</h1>
+                    <h1 class="p-3 tw-text-7xl tw-font-extrabold tw-text-white">${info.name}</h1>
+                    <h1 class="p-2 tw-text-slate-400">${info.des}</h1>
                     <div class="tw-flex">
                         <button type="button" class="btn btn-primary">HIRE ME</button>
-                        <button type="button" class="mx-3 btn btn-outline-primary">GET CV</button>
                     </div>
 
                 </div>
-                <img width="50%" class="" src="./img/home.png" alt="">
+                <img  width="90%" src="./img/avat2.png" alt="">
             </div>
         </div>
             `
         }).join("") }
-            <div>
-                <div class="tw-mb-10 tw-bg-white ">
-                <h1 class="tw-py-6 tw-pl-8">About me</h1>
-                    <div class="tw-flex">
-                    <img width="50%" class="tw-px-6" src="./img/about-us.png" alt="">
-                    <div class="tw-p-10">
-                        <h3 class=" tw-text-black tw-text-5xl">Giới thiệu bản thân</h3>
-                        <p class="py-3 fs-5">Hiện tại mình đang học kì 5 tại trường FPT Polytechnic.  Ngoài việc học tập trên trường thì mình thường xuyên học thêm trên F8 Fullstack và trên các kênh Youtube như evondev, easy frontend, ...
-                        Mình thực sự thích code và thử thách bản thân học được nhiều cái mới vào mỗi ngày mới. Mục tiêu hiện tại của mình là trở thành một lập trình viên Frontend.</p>
-                        <button class="tw-rounded-lg tw-bg-indigo-700 tw-p-4 tw-px-8 "><a class="tw-text-white tw-text-lg tw-no-underline" href="https://drive.google.com/file/d/1DgWaESWIqQDYiFTkBbNd5bBUdV7vNwRP/view?usp=sharing">DOWNLOAD CV</a></button>
-                    </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-            <h1 class="tw-text-center tw-py-8 tw-text-red-600">Project</h1>
-            <div class="row">
-            ${data.map((project) => {
+            
+            ${self.map((myself) => {
                 return `
-                <div class="col-md-4 ">
-                    <div class="project tw-border-8 tw-border-red-500 tw-my-20 tw-bg-slate-800 tw-text-white">
-                        <img width="500px" src="${project.gallery}" alt="">
-                        <h3 class="tw-py-4 tw-pl-4">${project.name}</h3>
-                        <a class="tw-bg-white tw-text-black text-decoration-none py-2">${project.category}</a>
-                        <p class=" tw-text-white tw-py-2 tw-mx-4 tw-text-center">${project.des}</p>
-                        <button class="tw-w-full tw-bg-gray-400 tw-py-2"><a class="tw-text-white text-decoration-none" href="${project.link}">View githup</a></button>
+                <div class="tw-text-white container mb-2">
+            <div class="p-3">
+            <div class="container w-25">
+            <h1 class="tw-text-center tw-text-6xl  tw-font-extrabold tw-text-white">Project</h1>
+                
+            </div>
+        </div>
+    </div>
+    <div class="container tw-text-white">
+        <div class="row container">
+            <div class="col-md-4 col-sm-12">
+                <img class="tw-rounded-full w-100 h-auto" src="./img/avt2.jpg" alt="">
+            </div>
+            <div class="col-md-4 p-3">
+                <h4 class="tw-text-4xl tw-font-extrabold tw-text-purple-500">Giới thiệu về bản thân</h4>
+                <p class="tw-text-2xl tw-text-cyan-100 justify-content-center">${myself.des}</p>
+            </div>
+            <div class="col-md-4 col-sm-12 row p-3 tw-text-xl">
+                <!-- #1 -->
+                <div class="col-3 col-sm-6 text-md-start text-sm-center font-weight-bold">
+                    <p class="font-weight-bold">Tuổi:</p>
+                </div>
+                <div class="col-9 col-sm-6 text-md-start text-sm-center">
+                    <p>${myself.age}</p>
+                </div>
+                <!-- #2 -->
+                <div class="col-3 col-sm-6 text-md-start text-sm-center font-weight-bold">
+                    <p class="font-weight-bold">Địa chỉ:</p>
+                </div>
+                <div class="col-9 col-sm-6 text-md-start text-sm-center">
+                    <p>${myself.address}</p>
+                </div>
+        
+                <!-- #4 -->
+                <div class="col-3 col-sm-6 text-md-start text-sm-center font-weight-bold">
+                    <p class="font-weight-bold">Email:</p>
+                </div>
+                <div class="col-9 col-sm-6 text-md-start text-sm-center">
+                    <p>${myself.email}</p>
+                </div>
+                <!-- #5 -->
+                <div class="col-3 col-sm-6 text-md-start text-sm-center font-weight-bold">
+                    <p class="font-weight-bold">Phone:</p>
+                </div>
+                <div class="col-9 col-sm-6 text-md-start text-sm-center">
+                    <p>${myself.phone}</p>
+                </div>
+                <!-- #6 -->
+                
+                <div class="w-100 font-icon float-end">
+                    <i class="tw-text-red-600 tw-bg-white  tw-p-4 tw-mr-6 tw-rounded-full fa-brands fa-facebook"></i>
+                    <i class="tw-text-red-600 tw-bg-white  tw-p-4 tw-mr-6 tw-rounded-full fa-brands fa-instagram"></i>
+                    <i class="tw-text-red-600 tw-bg-white  tw-p-4 tw-mr-6 tw-rounded-full fa-solid fa-envelope"></i>
+                    <i class="tw-text-red-600 tw-bg-white  tw-p-4 tw-mr-6 tw-rounded-full fa-solid fa-phone"></i>
+                </div>
+                <button class="tw-rounded-lg tw-bg-green-300 tw-font-serif"><a class="tw-text-fuchsia-600 tw-text-2xl tw-text-lg tw-no-underline" href="https://drive.google.com/file/d/1DgWaESWIqQDYiFTkBbNd5bBUdV7vNwRP/view?usp=sharing">DOWNLOAD CV</a></button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h4 class="p-2 mt-3 title-services">Services</h4>
+       
+    </div>
+                `
+            }).join("")}
+                
+            
+            <div class="container">
+            <h1 class="tw-text-center tw-text-6xl tw-font-extrabold tw-text-white">Project</h1>
+            <div class="row">
+            ${projects.map((project) => {
+                return `
+                <div  class="col-md-4 p-2 rounded box-project">
+                    <a class="text-decoration-none" href="/projects/${project.id}">
+                    <div class="project tw-border-red-500 tw-my-20 tw-bg-slate-700 tw-text-white">
+                        <div class="box_img">
+                        <img  width="100%" src="${project.gallery}" alt="">
                     </div>
+                        <h3  class="tw-py-4 tw-pl-4  text-white">${project.name}</h3>
+                        <p class=" tw-text-white tw-py-2 tw-mx-4 box-content tw-text-center">${project.des}</p>
+                        <button class="tw-w-full tw-bg-gray-400 tw-py-2">
+                            <a class="tw-text-white text-decoration-none" href="${project.link}">View githup</a>
+                        </button>
+                    </div></a>
                 </div>
                 `
             }).join("")}
-            
-            ${Footer()}
         </div>
         </div>
             ${Footer()}
         </div>
     `
 }
+
   
   export default HomePage
